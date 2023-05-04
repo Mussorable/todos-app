@@ -1,0 +1,17 @@
+header {
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 40px;
+  padding-inline: 30px;
+}
+
+.main-box {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+}
+
+.form-box {
+  padding: 10px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+}

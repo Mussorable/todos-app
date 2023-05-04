@@ -1,0 +1,31 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2c3333;
+  --secondary: #395b64;
+  --third: #a5c9ca;
+  --fourth: #e7f6f2;
+  --border-color: var(--third);
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+}
+
+html {
+  background-color: var(--primary);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}

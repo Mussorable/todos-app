@@ -1,7 +1,16 @@
 import clsx from "clsx";
 
 export default function Input(props) {
-  const { hideLabel, labelText, id, children, type, labelOn, ...rest } = props;
+  const {
+    hideLabel,
+    labelText,
+    id,
+    children,
+    type,
+    labelOn,
+    handleInputChange,
+    ...rest
+  } = props;
   const hideLabelClass = clsx({
     "sr-only": hideLabel,
   });

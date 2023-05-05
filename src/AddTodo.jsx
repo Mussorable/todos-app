@@ -1,9 +1,24 @@
 import Input from "./Input";
 import Button from "./Button";
+import { useState } from "react";
 
-export default function AddTodo() {
+export default function AddTodo({ handlePostAction }) {
+  const [todo, setTodo] = useState("");
+  const [todoDesc, setTodoDesc] = useState("");
+
+  function resetForm() {
+    setTodo("");
+    setTodoDesc("");
+  }
+
   function handleSubmitForm(event) {
     event.preventDefault();
+
+    handlePostAction("todo-list.json", {
+      todo,
+      todoDesc,
+    }).catch((error) => console.error(error));
+    resetForm();
   }
 
   return (
@@ -11,16 +26,21 @@ export default function AddTodo() {
       <form onSubmit={handleSubmitForm}>
         <div className="inputs-field">
           <Input
-            placeholder="Write new todo"
+            value={todo}
+            onChange={(event) => setTodo(event.target.value)}
+            placeholder="Write new todo*"
             hideLabel
             labelText="Todo"
             type="text"
             id="todo-heading"
+            required
           />
           <Input
+            value={todoDesc}
+            onChange={(event) => setTodoDesc(event.target.value)}
             placeholder="Quick description"
             hideLabel
-            labelText={"Quick description"}
+            labelText="Quick description"
             type="text"
             id="todo-desc"
           />

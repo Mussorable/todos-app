@@ -7,7 +7,7 @@ import useFetch from "./useFetch";
 function App() {
   const [todoList, setTodoList] = useState([]);
   const [idList, setIdList] = useState([]);
-  const { post, get } = useFetch(
+  const { post, get, del } = useFetch(
     "https://pet-hotel-375a8-default-rtdb.europe-west1.firebasedatabase.app/"
   );
 
@@ -31,7 +31,13 @@ function App() {
               handlePostAction={post}
               handleIdList={setIdList}
             />
-            <Todos todoList={todoList} idList={idList} />
+            <Todos
+              handleDelAction={del}
+              handleIdList={setIdList}
+              handleTodoList={setTodoList}
+              todoList={todoList}
+              idList={idList}
+            />
           </div>
         </div>
       </main>

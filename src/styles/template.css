@@ -1,0 +1,68 @@
+header {
+  border-bottom: 2px solid var(--border-color);
+  margin-bottom: 40px;
+  padding-inline: 30px;
+}
+
+.main-box {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 50px;
+}
+
+.form-box {
+  padding: 10px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  align-self: flex-start;
+  background-color: var(--primary);
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: 20px;
+}
+
+.todo-item {
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  color: var(--third);
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+  transition: opacity 0.3s;
+}
+
+.todo-item.to-deletion {
+  opacity: 0.7;
+}
+
+.todo-item:hover {
+  border-color: var(--third);
+}
+
+.todo-item.to-deletion:hover {
+  border-color: inherit;
+}
+
+.todo-item.to-deletion * {
+  cursor: default;
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item-name {
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.todo-item > p {
+  word-break: break-all;
+}

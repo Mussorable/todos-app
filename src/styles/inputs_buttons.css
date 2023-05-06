@@ -1,4 +1,4 @@
-.input {
+.text {
   padding-block: 10px;
   padding-left: 10px;
   width: 100%;
@@ -6,6 +6,47 @@
   margin-bottom: 20px;
   border-radius: 3px;
   border: none;
+}
+
+.checkbox {
+  margin: 0;
+  all: unset;
+  cursor: pointer;
+  background-color: var(--secondary);
+  width: 19px;
+  height: 19px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+  position: relative;
+}
+
+.checkbox:hover {
+  background-color: var(--fourth);
+  position: relative;
+  z-index: 1;
+}
+
+.checkbox::before {
+  transition: background-color 0.2s;
+}
+
+.checkbox:hover::before {
+  position: absolute;
+  left: -36%;
+  bottom: -36%;
+  content: "";
+  background-color: white;
+  width: 33px;
+  height: 33px;
+  border-radius: 50%;
+  opacity: 0.2;
+}
+
+.checkbox:checked {
+  background-color: var(--third);
+  background-image: url("../assets/check.svg");
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .button {
@@ -16,8 +57,8 @@
   padding-block: 10px;
   width: 100%;
   text-align: center;
-  background-color: var(--third);
-  color: var(--fourth);
+  background-color: var(--fourth);
+  color: var(--primary);
   font-weight: bold;
   letter-spacing: 1.3px;
   opacity: 0.9;
@@ -25,12 +66,21 @@
 }
 
 .button:hover {
-  background-color: var(--hover);
+  background-color: var(--fifth);
   border-color: var(--secondary);
-  color: var(--primary);
   opacity: 1;
 }
 
 .button:active {
   translate: 1px 1px;
+}
+
+.item-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.item-checkbox > input {
+  order: -1;
 }

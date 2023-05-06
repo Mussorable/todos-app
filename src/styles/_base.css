@@ -3,21 +3,22 @@
 }
 
 :root {
-  --primary: #1a1a1d;
-  --secondary: #4e4e50;
-  --third: #950740;
-  --fourth: #f4fffc;
-  --hover: #c3073f;
+  --primary: #264653;
+  --secondary: #2a9d8f;
+  --third: #e9c46a;
+  --fourth: #f4a261;
+  --fifth: #e76f51;
+  --hover: var(--third);
   --border-color: var(--secondary);
+}
+
+html {
+  background-color: #222;
 }
 
 body {
   font-family: "Poppins", sans-serif;
   margin: 0;
-}
-
-html {
-  background-color: var(--primary);
 }
 
 .sr-only {
@@ -29,4 +30,8 @@ html {
   overflow: hidden;
   clip: rect(0, 0, 0, 0);
   border: 0;
+}
+
+.label {
+  cursor: pointer;
 }

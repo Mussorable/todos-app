@@ -5,7 +5,6 @@ export default function Input(props) {
     hideLabel,
     labelText,
     id,
-    children,
     type,
     labelOn,
     handleInputChange,
@@ -13,6 +12,7 @@ export default function Input(props) {
   } = props;
   const hideLabelClass = clsx({
     "sr-only": hideLabel,
+    label: true,
   });
 
   return (
@@ -20,9 +20,7 @@ export default function Input(props) {
       <label className={hideLabelClass} htmlFor={id}>
         {labelText}
       </label>
-      <input {...rest} id={id} className="input" type={type}>
-        {children}
-      </input>
+      <input {...rest} id={id} className={type} type={type} />
     </>
   );
 }

@@ -15,12 +15,37 @@ header {
   border: 2px solid var(--border-color);
   border-radius: 8px;
   align-self: flex-start;
+  background-color: var(--primary);
+}
+
+.todo-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
 }
 
 .todo-item {
   border: 2px solid var(--border-color);
   border-radius: 8px;
-  margin-bottom: 20px;
   padding: 10px;
-  color: var(--fourth);
+  color: var(--third);
+  background-color: var(--primary);
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+}
+
+.todo-item:hover {
+  border-color: var(--third);
+}
+
+.item-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-item > p {
+  word-break: break-all;
 }

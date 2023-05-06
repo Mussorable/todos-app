@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Input from "./Input";
 
 export default function Todos({ todoList }) {
   return (
@@ -7,8 +8,18 @@ export default function Todos({ todoList }) {
         todoList.map((todo, index) => {
           return (
             <div key={index} className="todo-item">
-              <h3>{todo.todo}</h3>
-              <p>{todo.todoDesc}</p>
+              <div className="item-header">
+                <h3 className="h3">{todo.todo}</h3>
+                <div className="item-checkbox">
+                  <Input
+                    labelText="Resolve"
+                    // refactor to take the uID
+                    id={index}
+                    type="checkbox"
+                  />
+                </div>
+              </div>
+              {todo.todoDesc && <p>{todo.todoDesc}</p>}
             </div>
           );
         })}

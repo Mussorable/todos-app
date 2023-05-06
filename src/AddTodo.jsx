@@ -2,7 +2,11 @@ import Input from "./Input";
 import Button from "./Button";
 import { useState } from "react";
 
-export default function AddTodo({ handlePostAction, handleTodoList }) {
+export default function AddTodo({
+  handlePostAction,
+  handleTodoList,
+  handleIdList,
+}) {
   const [todo, setTodo] = useState("");
   const [todoDesc, setTodoDesc] = useState("");
 
@@ -11,8 +15,9 @@ export default function AddTodo({ handlePostAction, handleTodoList }) {
     setTodoDesc("");
   }
 
-  function addToExistingList(todo, todoDesc) {
+  function addToExistingList(todo, todoDesc, uID) {
     handleTodoList((prevValue) => [...prevValue, { todo, todoDesc }]);
+    handleIdList((prevValue) => [...prevValue, uID]);
   }
 
   function handleSubmitForm(event) {
@@ -21,8 +26,9 @@ export default function AddTodo({ handlePostAction, handleTodoList }) {
     handlePostAction("todo-list.json", {
       todo,
       todoDesc,
-    }).catch((error) => console.error(error));
-    addToExistingList(todo, todoDesc);
+    })
+      .then((response) => addToExistingList(todo, todoDesc, response.name))
+      .catch((error) => console.error(error));
 
     resetForm();
   }

@@ -6,12 +6,16 @@ import useFetch from "./useFetch";
 
 function App() {
   const [todoList, setTodoList] = useState([]);
+  const [idList, setIdList] = useState([]);
   const { post, get } = useFetch(
     "https://pet-hotel-375a8-default-rtdb.europe-west1.firebasedatabase.app/"
   );
 
   useEffect(() => {
-    get("todo-list.json").then((data) => setTodoList(Object.values(data)));
+    get("todo-list.json").then((data) => {
+      setTodoList(Object.values(data));
+      setIdList(Object.keys(data));
+    });
   }, []);
 
   return (
@@ -22,8 +26,12 @@ function App() {
       <main>
         <div className="container">
           <div className="main-box">
-            <AddTodo handleTodoList={setTodoList} handlePostAction={post} />
-            <Todos todoList={todoList} />
+            <AddTodo
+              handleTodoList={setTodoList}
+              handlePostAction={post}
+              handleIdList={setIdList}
+            />
+            <Todos todoList={todoList} idList={idList} />
           </div>
         </div>
       </main>

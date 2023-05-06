@@ -20,7 +20,7 @@ header {
 
 .todo-list {
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
   gap: 20px;
   min-width: 0;
 }

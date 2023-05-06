@@ -1,7 +1,8 @@
+import { useState } from "react";
 import { useEffect } from "react";
 import Input from "./Input";
 
-export default function Todos({ todoList }) {
+export default function Todos({ todoList, idList }) {
   return (
     <div className="todo-list">
       {todoList &&
@@ -13,8 +14,7 @@ export default function Todos({ todoList }) {
                 <div className="item-checkbox">
                   <Input
                     labelText="Resolve"
-                    // refactor to take the uID
-                    id={index}
+                    id={idList[index] ? idList[index] : "unknown-key"}
                     type="checkbox"
                   />
                 </div>

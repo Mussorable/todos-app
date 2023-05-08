@@ -14,9 +14,6 @@ export default function Todos({
 
   function handleCheckboxChange(event) {
     setTodoElement(event.target.id);
-    // todoItemRef.current[event.target.getAttribute("data--order")].classList.add(
-    //   "to-deletion"
-    // );
     setTimeout(() => {
       const uID = event.target.getAttribute("id");
       handleDelAction(`todo-list/${uID}.json`)

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useRef } from "react";
 import Input from "./Input";
 
@@ -9,12 +10,10 @@ export default function Todos({
   handleTodoList,
 }) {
   const todoItemRef = useRef([]);
+  const [todoElement, setTodoElement] = useState();
 
   function handleCheckboxChange(event) {
-    event.target.setAttribute("disabled", "disabled");
-    todoItemRef.current[event.target.getAttribute("data--order")].classList.add(
-      "to-deletion"
-    );
+    setTodoElement(event.target.id);
     setTimeout(() => {
       const uID = event.target.getAttribute("id");
       handleDelAction(`todo-list/${uID}.json`)
@@ -42,12 +41,15 @@ export default function Todos({
             <div
               ref={(element) => (todoItemRef.current[index] = element)}
               key={idList[index]}
-              className="todo-item"
+              className={`todo-item ${
+                idList.includes(todoElement) ? "to-deletion" : ""
+              }`}
             >
               <div className="item-header">
                 <h3 className="h3 item-name">{todo.todo}</h3>
                 <div className="item-checkbox">
                   <Input
+                    disabled={idList.includes(todoElement)}
                     data--order={index}
                     onChange={handleCheckboxChange}
                     labelText="Resolve"

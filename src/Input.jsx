@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { useEffect } from "react";
 
 export default function Input(props) {
   const {
@@ -14,13 +15,14 @@ export default function Input(props) {
     "sr-only": hideLabel,
     label: true,
   });
+  const inputClasses = clsx({}, type);
 
   return (
     <>
       <label className={hideLabelClass} htmlFor={id}>
         {labelText}
       </label>
-      <input {...rest} id={id} className={type} type={type} />
+      <input {...rest} id={id} className={inputClasses} type={type} />
     </>
   );
 }
